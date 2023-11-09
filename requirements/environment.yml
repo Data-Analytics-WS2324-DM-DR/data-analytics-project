@@ -4,14 +4,16 @@ channels:
   - defaults
 dependencies:
   - python=3.11
-  - pandas
-  - openpyxl
-  - jupyter
-  - jupyter_contrib_nbextensions
-  - voila
-  - rise
-  - scikit-learn
-  - altair
-  - vega_datasets
-  - matplotlib
-  - seaborn
+  - pip
+  - pip:
+      - pandas
+      - openpyxl
+      - ipykernel
+      - notebook
+      - jupyterlab
+      - altair
+      - mysql-connector-python
+      - streamlit
+      - matplotlib
+      - scikit-learn
+      - autopep8
