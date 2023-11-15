@@ -7489,7 +7489,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_hide-input">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7498,7 +7498,933 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'../../Traffic_Crashes_-_Crashes_20231112.csv'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Release-and-establishment-of-the-weevil-Mecinus-janthiniformis-for-biological-control-of-Dalmatian-toadflax-in-southern-California">Release and establishment of the weevil Mecinus janthiniformis for biological control of Dalmatian toadflax in southern California<a class="anchor-link" href="#Release-and-establishment-of-the-weevil-Mecinus-janthiniformis-for-biological-control-of-Dalmatian-toadflax-in-southern-California">¶</a></h2><h3 id="Data-source">Data source<a class="anchor-link" href="#Data-source">¶</a></h3><p><a href="https://catalog.data.gov/dataset/data-from-release-and-establishment-of-the-weevil-mecinus-janthiniformis-for-biological-co">https://catalog.data.gov/dataset/data-from-release-and-establishment-of-the-weevil-mecinus-janthiniformis-for-biological-co</a></p>
+<h3 id="Data-characterisitcs">Data characterisitcs<a class="anchor-link" href="#Data-characterisitcs">¶</a></h3><p>Publisher: Agricultural Research Service (Department of Agriculture)</p>
+<p>The dataset includes different types of vegetation and their characteristics (such as stem length, stem diam and branches) in southern Califiornia. In this area stem weevils (M. janthiniformis) were released and used as a biological control agent of dalmatian toadflax (Linaria dalmatica). The data shows the spread of weevil populations as well as the impact on the growth of the different vegetation types.</p>
+<h3 id="Research-question">Research question<a class="anchor-link" href="#Research-question">¶</a></h3><h4 id="Linear-Regression">Linear Regression<a class="anchor-link" href="#Linear-Regression">¶</a></h4><p><strong>Which aspects can help predict the total main stem length?</strong></p>
+<ul>
+<li>Y = main steam length</li>
+<li>Column "main stem length (cm)", length of stem, excluding side branches</li>
+<li>Possible predictor variables: stem diam bottom (mm), side branches (cm), diam top (mm), tip of stem broken, infest, total chamber length, meja/100 cm</li>
+</ul>
+<h4 id="Classification">Classification<a class="anchor-link" href="#Classification">¶</a></h4><p><strong>Infestation: Are plants that are infested by weevils more likely to remain smaller?</strong></p>
+<ul>
+<li>Column "infested", 1 = infested by M. janthiniformis, 0 = not</li>
+<li>Possible predictor variables: main stem length (cm), stem diam bottom (mm), side branches (cm), diam top (mm), tip of stem broken</li>
+</ul>
+<h3 id="Overview-of-data">Overview of data<a class="anchor-link" href="#Overview-of-data">¶</a></h3><pre><code>See below.</code></pre>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">PATH</span> <span class="o">=</span> <span class="s1">'../data/raw/dissections_2012_HV.csv'</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">PATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 1066 entries, 0 to 1065
+Data columns (total 25 columns):
+ #   Column                  Non-Null Count  Dtype  
+---  ------                  --------------  -----  
+ 0   year                    1066 non-null   int64  
+ 1   diss date               1066 non-null   object 
+ 2   Date                    1066 non-null   object 
+ 3   site                    1066 non-null   object 
+ 4   trt                     1066 non-null   object 
+ 5   BC                      1066 non-null   int64  
+ 6   stem #                  1066 non-null   int64  
+ 7   stem diam bottom (mm)   1066 non-null   float64
+ 8    main stem length (cm)  1066 non-null   float64
+ 9   Total Meja              1066 non-null   int64  
+ 10  Meja/100 cm             1066 non-null   float64
+ 11  infested                1066 non-null   int64  
+ 12  diam top (mm)           370 non-null    float64
+ 13  Tip of Stem broken      500 non-null    object 
+ 14  side branches (cm)      84 non-null     float64
+ 15  No. empty chambers      1066 non-null   int64  
+ 16  total chamber length    140 non-null    float64
+ 17  live adults             302 non-null    object 
+ 18  dead adults             497 non-null    object 
+ 19  dead larvae             304 non-null    float64
+ 20  dead pupae              33 non-null     float64
+ 21  parasitoid              0 non-null      float64
+ 22  live pupa               0 non-null      float64
+ 23  live larva              0 non-null      float64
+ 24  Total No. adults        1066 non-null   int64  
+dtypes: float64(11), int64(7), object(7)
+memory usage: 208.3+ KB
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>year                      1066
+diss date                 1066
+Date                      1066
+site                      1066
+trt                       1066
+BC                        1066
+stem #                    1066
+stem diam bottom (mm)     1066
+ main stem length (cm)    1066
+Total Meja                1066
+Meja/100 cm               1066
+infested                  1066
+diam top (mm)              370
+Tip of Stem broken         500
+side branches (cm)          84
+No. empty chambers        1066
+total chamber length       140
+live adults                302
+dead adults                497
+dead larvae                304
+dead pupae                  33
+parasitoid                   0
+live pupa                    0
+live larva                   0
+Total No. adults          1066
+dtype: int64</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>count</th>
+<th>mean</th>
+<th>std</th>
+<th>min</th>
+<th>25%</th>
+<th>50%</th>
+<th>75%</th>
+<th>max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>year</th>
+<td>1066.0</td>
+<td>2014.288931</td>
+<td>2.034678</td>
+<td>2012.0</td>
+<td>2012.000</td>
+<td>2014.00</td>
+<td>2016.000</td>
+<td>2018.0</td>
+</tr>
+<tr>
+<th>BC</th>
+<td>1066.0</td>
+<td>0.487805</td>
+<td>0.500086</td>
+<td>0.0</td>
+<td>0.000</td>
+<td>0.00</td>
+<td>1.000</td>
+<td>1.0</td>
+</tr>
+<tr>
+<th>stem #</th>
+<td>1066.0</td>
+<td>25.863039</td>
+<td>29.670016</td>
+<td>1.0</td>
+<td>8.000</td>
+<td>15.00</td>
+<td>32.000</td>
+<td>141.0</td>
+</tr>
+<tr>
+<th>stem diam bottom (mm)</th>
+<td>1066.0</td>
+<td>4.963227</td>
+<td>1.832666</td>
+<td>1.1</td>
+<td>3.700</td>
+<td>4.90</td>
+<td>6.200</td>
+<td>12.2</td>
+</tr>
+<tr>
+<th>main stem length (cm)</th>
+<td>1066.0</td>
+<td>51.277674</td>
+<td>24.923005</td>
+<td>2.0</td>
+<td>34.000</td>
+<td>49.00</td>
+<td>67.000</td>
+<td>135.0</td>
+</tr>
+<tr>
+<th>Total Meja</th>
+<td>1066.0</td>
+<td>5.273921</td>
+<td>9.163923</td>
+<td>0.0</td>
+<td>0.000</td>
+<td>0.00</td>
+<td>8.000</td>
+<td>67.0</td>
+</tr>
+<tr>
+<th>Meja/100 cm</th>
+<td>1066.0</td>
+<td>11.513602</td>
+<td>20.270924</td>
+<td>0.0</td>
+<td>0.000</td>
+<td>0.00</td>
+<td>15.550</td>
+<td>133.3</td>
+</tr>
+<tr>
+<th>infested</th>
+<td>1066.0</td>
+<td>0.454034</td>
+<td>0.498116</td>
+<td>0.0</td>
+<td>0.000</td>
+<td>0.00</td>
+<td>1.000</td>
+<td>1.0</td>
+</tr>
+<tr>
+<th>diam top (mm)</th>
+<td>370.0</td>
+<td>1.781081</td>
+<td>1.224510</td>
+<td>0.2</td>
+<td>0.900</td>
+<td>1.50</td>
+<td>2.300</td>
+<td>7.6</td>
+</tr>
+<tr>
+<th>side branches (cm)</th>
+<td>84.0</td>
+<td>60.226190</td>
+<td>47.528647</td>
+<td>8.0</td>
+<td>29.500</td>
+<td>45.50</td>
+<td>76.750</td>
+<td>250.0</td>
+</tr>
+<tr>
+<th>No. empty chambers</th>
+<td>1066.0</td>
+<td>2.537523</td>
+<td>5.789500</td>
+<td>0.0</td>
+<td>0.000</td>
+<td>0.00</td>
+<td>2.000</td>
+<td>54.0</td>
+</tr>
+<tr>
+<th>total chamber length</th>
+<td>140.0</td>
+<td>108.002071</td>
+<td>83.289937</td>
+<td>0.0</td>
+<td>45.025</td>
+<td>90.25</td>
+<td>149.875</td>
+<td>429.5</td>
+</tr>
+<tr>
+<th>dead larvae</th>
+<td>304.0</td>
+<td>0.095395</td>
+<td>0.539629</td>
+<td>0.0</td>
+<td>0.000</td>
+<td>0.00</td>
+<td>0.000</td>
+<td>6.0</td>
+</tr>
+<tr>
+<th>dead pupae</th>
+<td>33.0</td>
+<td>1.606061</td>
+<td>1.116339</td>
+<td>1.0</td>
+<td>1.000</td>
+<td>1.00</td>
+<td>2.000</td>
+<td>6.0</td>
+</tr>
+<tr>
+<th>parasitoid</th>
+<td>0.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>live pupa</th>
+<td>0.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>live larva</th>
+<td>0.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>Total No. adults</th>
+<td>1066.0</td>
+<td>2.659475</td>
+<td>6.732263</td>
+<td>0.0</td>
+<td>0.000</td>
+<td>0.00</td>
+<td>1.000</td>
+<td>66.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>year</th>
+<td>2012</td>
+<td>2012</td>
+<td>2012</td>
+<td>2012</td>
+<td>2012</td>
+</tr>
+<tr>
+<th>diss date</th>
+<td>12/7/12</td>
+<td>12/8/12</td>
+<td>12/10/12</td>
+<td>12/10/12</td>
+<td>12/10/12</td>
+</tr>
+<tr>
+<th>Date</th>
+<td>12/3/12</td>
+<td>12/3/12</td>
+<td>12/3/12</td>
+<td>12/3/12</td>
+<td>12/3/12</td>
+</tr>
+<tr>
+<th>site</th>
+<td>West</td>
+<td>West</td>
+<td>West</td>
+<td>West</td>
+<td>West</td>
+</tr>
+<tr>
+<th>trt</th>
+<td>Release</td>
+<td>Release</td>
+<td>Release</td>
+<td>Release</td>
+<td>Release</td>
+</tr>
+<tr>
+<th>BC</th>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<th>stem #</th>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+<tr>
+<th>stem diam bottom (mm)</th>
+<td>7.8</td>
+<td>8.2</td>
+<td>6.6</td>
+<td>6.4</td>
+<td>6.5</td>
+</tr>
+<tr>
+<th>main stem length (cm)</th>
+<td>64.0</td>
+<td>57.5</td>
+<td>33.0</td>
+<td>59.0</td>
+<td>45.0</td>
+</tr>
+<tr>
+<th>Total Meja</th>
+<td>21</td>
+<td>46</td>
+<td>32</td>
+<td>30</td>
+<td>31</td>
+</tr>
+<tr>
+<th>Meja/100 cm</th>
+<td>32.8</td>
+<td>80.0</td>
+<td>97.0</td>
+<td>50.8</td>
+<td>68.9</td>
+</tr>
+<tr>
+<th>infested</th>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<th>diam top (mm)</th>
+<td>2.6</td>
+<td>2.2</td>
+<td>2.6</td>
+<td>2.6</td>
+<td>3.0</td>
+</tr>
+<tr>
+<th>Tip of Stem broken</th>
+<td>b</td>
+<td>b</td>
+<td>b</td>
+<td>b</td>
+<td>b</td>
+</tr>
+<tr>
+<th>side branches (cm)</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>No. empty chambers</th>
+<td>4</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<th>total chamber length</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>live adults</th>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<th>dead adults</th>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<th>dead larvae</th>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>dead pupae</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>parasitoid</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>live pupa</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>live larva</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>Total No. adults</th>
+<td>17</td>
+<td>44</td>
+<td>32</td>
+<td>30</td>
+<td>31</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>1061</th>
+<th>1062</th>
+<th>1063</th>
+<th>1064</th>
+<th>1065</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>year</th>
+<td>2018</td>
+<td>2018</td>
+<td>2018</td>
+<td>2018</td>
+<td>2018</td>
+</tr>
+<tr>
+<th>diss date</th>
+<td>8/23/19</td>
+<td>8/23/19</td>
+<td>8/23/19</td>
+<td>8/23/19</td>
+<td>8/23/19</td>
+</tr>
+<tr>
+<th>Date</th>
+<td>5/9/19</td>
+<td>5/9/19</td>
+<td>5/9/19</td>
+<td>5/9/19</td>
+<td>5/9/19</td>
+</tr>
+<tr>
+<th>site</th>
+<td>USFS-North</td>
+<td>USFS-North</td>
+<td>USFS-North</td>
+<td>USFS-North</td>
+<td>USFS-North</td>
+</tr>
+<tr>
+<th>trt</th>
+<td>Check</td>
+<td>Check</td>
+<td>Check</td>
+<td>Check</td>
+<td>Check</td>
+</tr>
+<tr>
+<th>BC</th>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<th>stem #</th>
+<td>16</td>
+<td>17</td>
+<td>18</td>
+<td>19</td>
+<td>20</td>
+</tr>
+<tr>
+<th>stem diam bottom (mm)</th>
+<td>4.5</td>
+<td>5.3</td>
+<td>6.8</td>
+<td>6.9</td>
+<td>7.1</td>
+</tr>
+<tr>
+<th>main stem length (cm)</th>
+<td>46.0</td>
+<td>51.0</td>
+<td>109.0</td>
+<td>104.0</td>
+<td>96.0</td>
+</tr>
+<tr>
+<th>Total Meja</th>
+<td>8</td>
+<td>1</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<th>Meja/100 cm</th>
+<td>17.4</td>
+<td>2.0</td>
+<td>3.7</td>
+<td>1.0</td>
+<td>2.1</td>
+</tr>
+<tr>
+<th>infested</th>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<th>diam top (mm)</th>
+<td>NaN</td>
+<td>2.1</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>Tip of Stem broken</th>
+<td>NaN</td>
+<td>b</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>side branches (cm)</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>No. empty chambers</th>
+<td>6</td>
+<td>0</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<th>total chamber length</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>live adults</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>dead adults</th>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<th>dead larvae</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>dead pupae</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>parasitoid</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>live pupa</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>live larva</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>Total No. adults</th>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_hide-input">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">PATH</span> <span class="o">=</span> <span class="s1">'../../_local/Traffic_Crashes_-_Crashes.csv'</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">PATH</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7512,8 +8438,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Analysis-Traffic-Crashes-Chicago">Analysis Traffic Crashes Chicago<a class="anchor-link" href="#Analysis-Traffic-Crashes-Chicago">¶</a></h2><h3 id="Data-source">Data source<a class="anchor-link" href="#Data-source">¶</a></h3><p><a href="https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if">https://data.cityofchicago.org/Transportation/Traffic-Crashes-Crashes/85ca-t3if</a></p>
-<h3 id="Data-characterisitcs">Data characterisitcs<a class="anchor-link" href="#Data-characterisitcs">¶</a></h3><p><strong>We would prefere this dataset over the second, we think this data is better to perform linear regression because of the amount of numeric values.</strong></p>
-<p>Crash data shows information about each traffic crash on city streets within the City of Chicago limits and under the jurisdiction of Chicago Police Department (CPD).</p>
+<h3 id="Data-characterisitcs">Data characterisitcs<a class="anchor-link" href="#Data-characterisitcs">¶</a></h3><p>Crash data shows information about each traffic crash on city streets within the City of Chicago limits and under the jurisdiction of Chicago Police Department (CPD).</p>
 <p>Updated: November 11, 2023
 Data Provided by: City of Chicago</p>
 <p>Size of the dataset fullfills the reqirements of the project. Data is on daily basis containing 49 columns with 779483 rows.</p>
@@ -7552,7 +8477,7 @@ Data Provided by: City of Chicago</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -7566,61 +8491,61 @@ Data Provided by: City of Chicago</p>
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
-RangeIndex: 779483 entries, 0 to 779482
+RangeIndex: 780650 entries, 0 to 780649
 Data columns (total 49 columns):
  #   Column                         Non-Null Count   Dtype  
 ---  ------                         --------------   -----  
- 0   CRASH_RECORD_ID                779483 non-null  object 
- 1   RD_NO                          775008 non-null  object 
- 2   CRASH_DATE_EST_I               58551 non-null   object 
- 3   CRASH_DATE                     779483 non-null  object 
- 4   POSTED_SPEED_LIMIT             779483 non-null  int64  
- 5   TRAFFIC_CONTROL_DEVICE         779483 non-null  object 
- 6   DEVICE_CONDITION               779483 non-null  object 
- 7   WEATHER_CONDITION              779483 non-null  object 
- 8   LIGHTING_CONDITION             779483 non-null  object 
- 9   FIRST_CRASH_TYPE               779483 non-null  object 
- 10  TRAFFICWAY_TYPE                779483 non-null  object 
+ 0   CRASH_RECORD_ID                780650 non-null  object 
+ 1   RD_NO                          776296 non-null  object 
+ 2   CRASH_DATE_EST_I               58627 non-null   object 
+ 3   CRASH_DATE                     780650 non-null  object 
+ 4   POSTED_SPEED_LIMIT             780650 non-null  int64  
+ 5   TRAFFIC_CONTROL_DEVICE         780650 non-null  object 
+ 6   DEVICE_CONDITION               780650 non-null  object 
+ 7   WEATHER_CONDITION              780650 non-null  object 
+ 8   LIGHTING_CONDITION             780650 non-null  object 
+ 9   FIRST_CRASH_TYPE               780650 non-null  object 
+ 10  TRAFFICWAY_TYPE                780650 non-null  object 
  11  LANE_CNT                       199006 non-null  float64
- 12  ALIGNMENT                      779483 non-null  object 
- 13  ROADWAY_SURFACE_COND           779483 non-null  object 
- 14  ROAD_DEFECT                    779483 non-null  object 
- 15  REPORT_TYPE                    756864 non-null  object 
- 16  CRASH_TYPE                     779483 non-null  object 
- 17  INTERSECTION_RELATED_I         178582 non-null  object 
- 18  NOT_RIGHT_OF_WAY_I             36079 non-null   object 
- 19  HIT_AND_RUN_I                  243452 non-null  object 
- 20  DAMAGE                         779483 non-null  object 
- 21  DATE_POLICE_NOTIFIED           779483 non-null  object 
- 22  PRIM_CONTRIBUTORY_CAUSE        779483 non-null  object 
- 23  SEC_CONTRIBUTORY_CAUSE         779483 non-null  object 
- 24  STREET_NO                      779483 non-null  int64  
- 25  STREET_DIRECTION               779479 non-null  object 
- 26  STREET_NAME                    779482 non-null  object 
- 27  BEAT_OF_OCCURRENCE             779478 non-null  float64
- 28  PHOTOS_TAKEN_I                 10113 non-null   object 
- 29  STATEMENTS_TAKEN_I             17097 non-null   object 
- 30  DOORING_I                      2421 non-null    object 
- 31  WORK_ZONE_I                    4533 non-null    object 
- 32  WORK_ZONE_TYPE                 3527 non-null    object 
- 33  WORKERS_PRESENT_I              1159 non-null    object 
- 34  NUM_UNITS                      779483 non-null  int64  
- 35  MOST_SEVERE_INJURY             777768 non-null  object 
- 36  INJURIES_TOTAL                 777779 non-null  float64
- 37  INJURIES_FATAL                 777779 non-null  float64
- 38  INJURIES_INCAPACITATING        777779 non-null  float64
- 39  INJURIES_NON_INCAPACITATING    777779 non-null  float64
- 40  INJURIES_REPORTED_NOT_EVIDENT  777779 non-null  float64
- 41  INJURIES_NO_INDICATION         777779 non-null  float64
- 42  INJURIES_UNKNOWN               777779 non-null  float64
- 43  CRASH_HOUR                     779483 non-null  int64  
- 44  CRASH_DAY_OF_WEEK              779483 non-null  int64  
- 45  CRASH_MONTH                    779483 non-null  int64  
- 46  LATITUDE                       774255 non-null  float64
- 47  LONGITUDE                      774255 non-null  float64
- 48  LOCATION                       774255 non-null  object 
+ 12  ALIGNMENT                      780650 non-null  object 
+ 13  ROADWAY_SURFACE_COND           780650 non-null  object 
+ 14  ROAD_DEFECT                    780650 non-null  object 
+ 15  REPORT_TYPE                    757988 non-null  object 
+ 16  CRASH_TYPE                     780650 non-null  object 
+ 17  INTERSECTION_RELATED_I         178843 non-null  object 
+ 18  NOT_RIGHT_OF_WAY_I             36121 non-null   object 
+ 19  HIT_AND_RUN_I                  243846 non-null  object 
+ 20  DAMAGE                         780650 non-null  object 
+ 21  DATE_POLICE_NOTIFIED           780650 non-null  object 
+ 22  PRIM_CONTRIBUTORY_CAUSE        780650 non-null  object 
+ 23  SEC_CONTRIBUTORY_CAUSE         780650 non-null  object 
+ 24  STREET_NO                      780650 non-null  int64  
+ 25  STREET_DIRECTION               780646 non-null  object 
+ 26  STREET_NAME                    780649 non-null  object 
+ 27  BEAT_OF_OCCURRENCE             780645 non-null  float64
+ 28  PHOTOS_TAKEN_I                 10131 non-null   object 
+ 29  STATEMENTS_TAKEN_I             17128 non-null   object 
+ 30  DOORING_I                      2428 non-null    object 
+ 31  WORK_ZONE_I                    4539 non-null    object 
+ 32  WORK_ZONE_TYPE                 3531 non-null    object 
+ 33  WORKERS_PRESENT_I              1160 non-null    object 
+ 34  NUM_UNITS                      780650 non-null  int64  
+ 35  MOST_SEVERE_INJURY             778930 non-null  object 
+ 36  INJURIES_TOTAL                 778941 non-null  float64
+ 37  INJURIES_FATAL                 778941 non-null  float64
+ 38  INJURIES_INCAPACITATING        778941 non-null  float64
+ 39  INJURIES_NON_INCAPACITATING    778941 non-null  float64
+ 40  INJURIES_REPORTED_NOT_EVIDENT  778941 non-null  float64
+ 41  INJURIES_NO_INDICATION         778941 non-null  float64
+ 42  INJURIES_UNKNOWN               778941 non-null  float64
+ 43  CRASH_HOUR                     780650 non-null  int64  
+ 44  CRASH_DAY_OF_WEEK              780650 non-null  int64  
+ 45  CRASH_MONTH                    780650 non-null  int64  
+ 46  LATITUDE                       775410 non-null  float64
+ 47  LONGITUDE                      775410 non-null  float64
+ 48  LOCATION                       775410 non-null  object 
 dtypes: float64(11), int64(6), object(32)
-memory usage: 291.4+ MB
+memory usage: 291.8+ MB
 </pre>
 </div>
 </div>
@@ -7634,7 +8559,82 @@ memory usage: 291.4+ MB
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>CRASH_RECORD_ID                  780650
+RD_NO                            776296
+CRASH_DATE_EST_I                  58627
+CRASH_DATE                       780650
+POSTED_SPEED_LIMIT               780650
+TRAFFIC_CONTROL_DEVICE           780650
+DEVICE_CONDITION                 780650
+WEATHER_CONDITION                780650
+LIGHTING_CONDITION               780650
+FIRST_CRASH_TYPE                 780650
+TRAFFICWAY_TYPE                  780650
+LANE_CNT                         199006
+ALIGNMENT                        780650
+ROADWAY_SURFACE_COND             780650
+ROAD_DEFECT                      780650
+REPORT_TYPE                      757988
+CRASH_TYPE                       780650
+INTERSECTION_RELATED_I           178843
+NOT_RIGHT_OF_WAY_I                36121
+HIT_AND_RUN_I                    243846
+DAMAGE                           780650
+DATE_POLICE_NOTIFIED             780650
+PRIM_CONTRIBUTORY_CAUSE          780650
+SEC_CONTRIBUTORY_CAUSE           780650
+STREET_NO                        780650
+STREET_DIRECTION                 780646
+STREET_NAME                      780649
+BEAT_OF_OCCURRENCE               780645
+PHOTOS_TAKEN_I                    10131
+STATEMENTS_TAKEN_I                17128
+DOORING_I                          2428
+WORK_ZONE_I                        4539
+WORK_ZONE_TYPE                     3531
+WORKERS_PRESENT_I                  1160
+NUM_UNITS                        780650
+MOST_SEVERE_INJURY               778930
+INJURIES_TOTAL                   778941
+INJURIES_FATAL                   778941
+INJURIES_INCAPACITATING          778941
+INJURIES_NON_INCAPACITATING      778941
+INJURIES_REPORTED_NOT_EVIDENT    778941
+INJURIES_NO_INDICATION           778941
+INJURIES_UNKNOWN                 778941
+CRASH_HOUR                       780650
+CRASH_DAY_OF_WEEK                780650
+CRASH_MONTH                      780650
+LATITUDE                         775410
+LONGITUDE                        775410
+LOCATION                         775410
+dtype: int64</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 </div>
@@ -7665,185 +8665,203 @@ memory usage: 291.4+ MB
 <thead>
 <tr style="text-align: right;">
 <th></th>
-<th>POSTED_SPEED_LIMIT</th>
-<th>LANE_CNT</th>
-<th>STREET_NO</th>
-<th>BEAT_OF_OCCURRENCE</th>
-<th>NUM_UNITS</th>
-<th>INJURIES_TOTAL</th>
-<th>INJURIES_FATAL</th>
-<th>INJURIES_INCAPACITATING</th>
-<th>INJURIES_NON_INCAPACITATING</th>
-<th>INJURIES_REPORTED_NOT_EVIDENT</th>
-<th>INJURIES_NO_INDICATION</th>
-<th>INJURIES_UNKNOWN</th>
-<th>CRASH_HOUR</th>
-<th>CRASH_DAY_OF_WEEK</th>
-<th>CRASH_MONTH</th>
-<th>LATITUDE</th>
-<th>LONGITUDE</th>
+<th>count</th>
+<th>mean</th>
+<th>std</th>
+<th>min</th>
+<th>25%</th>
+<th>50%</th>
+<th>75%</th>
+<th>max</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th>count</th>
-<td>779483.000000</td>
-<td>1.990060e+05</td>
-<td>779483.000000</td>
-<td>779478.000000</td>
-<td>779483.000000</td>
-<td>777779.000000</td>
-<td>777779.000000</td>
-<td>777779.000000</td>
-<td>777779.000000</td>
-<td>777779.000000</td>
-<td>777779.000000</td>
-<td>777779.0</td>
-<td>779483.000000</td>
-<td>779483.000000</td>
-<td>779483.000000</td>
-<td>774255.000000</td>
-<td>774255.000000</td>
+<th>POSTED_SPEED_LIMIT</th>
+<td>780650.0</td>
+<td>28.397503</td>
+<td>6.190787</td>
+<td>0.000000</td>
+<td>30.000000</td>
+<td>30.000000</td>
+<td>30.000000</td>
+<td>9.900000e+01</td>
 </tr>
 <tr>
-<th>mean</th>
-<td>28.397077</td>
-<td>1.333032e+01</td>
-<td>3686.006601</td>
-<td>1242.627174</td>
-<td>2.034790</td>
-<td>0.188804</td>
-<td>0.001192</td>
-<td>0.020107</td>
-<td>0.106736</td>
-<td>0.060769</td>
-<td>2.004753</td>
-<td>0.0</td>
-<td>13.205491</td>
-<td>4.122719</td>
-<td>6.699534</td>
-<td>41.854826</td>
-<td>-87.673531</td>
+<th>LANE_CNT</th>
+<td>199006.0</td>
+<td>13.330322</td>
+<td>2961.623475</td>
+<td>0.000000</td>
+<td>2.000000</td>
+<td>2.000000</td>
+<td>4.000000</td>
+<td>1.191625e+06</td>
 </tr>
 <tr>
-<th>std</th>
-<td>6.191890</td>
-<td>2.961623e+03</td>
-<td>2888.303027</td>
-<td>705.363446</td>
-<td>0.452354</td>
-<td>0.564575</td>
-<td>0.037434</td>
-<td>0.166101</td>
-<td>0.421446</td>
-<td>0.317176</td>
-<td>1.159349</td>
-<td>0.0</td>
-<td>5.565238</td>
-<td>1.979764</td>
-<td>3.368798</td>
-<td>0.333911</td>
-<td>0.678372</td>
+<th>STREET_NO</th>
+<td>780650.0</td>
+<td>3686.011087</td>
+<td>2888.133792</td>
+<td>0.000000</td>
+<td>1246.000000</td>
+<td>3200.000000</td>
+<td>5600.000000</td>
+<td>4.511000e+05</td>
 </tr>
 <tr>
-<th>min</th>
+<th>BEAT_OF_OCCURRENCE</th>
+<td>780645.0</td>
+<td>1242.644871</td>
+<td>705.338150</td>
+<td>111.000000</td>
+<td>714.000000</td>
+<td>1211.000000</td>
+<td>1822.000000</td>
+<td>6.100000e+03</td>
+</tr>
+<tr>
+<th>NUM_UNITS</th>
+<td>780650.0</td>
+<td>2.034850</td>
+<td>0.452485</td>
+<td>1.000000</td>
+<td>2.000000</td>
+<td>2.000000</td>
+<td>2.000000</td>
+<td>1.800000e+01</td>
+</tr>
+<tr>
+<th>INJURIES_TOTAL</th>
+<td>778941.0</td>
+<td>0.188890</td>
+<td>0.564658</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>2.100000e+01</td>
+</tr>
+<tr>
+<th>INJURIES_FATAL</th>
+<td>778941.0</td>
+<td>0.001193</td>
+<td>0.037440</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>4.000000e+00</td>
+</tr>
+<tr>
+<th>INJURIES_INCAPACITATING</th>
+<td>778941.0</td>
+<td>0.020099</td>
+<td>0.166042</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>1.000000e+01</td>
+</tr>
+<tr>
+<th>INJURIES_NON_INCAPACITATING</th>
+<td>778941.0</td>
+<td>0.106781</td>
+<td>0.421531</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>2.100000e+01</td>
+</tr>
+<tr>
+<th>INJURIES_REPORTED_NOT_EVIDENT</th>
+<td>778941.0</td>
+<td>0.060817</td>
+<td>0.317265</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>1.500000e+01</td>
+</tr>
+<tr>
+<th>INJURIES_NO_INDICATION</th>
+<td>778941.0</td>
+<td>2.004747</td>
+<td>1.159485</td>
+<td>0.000000</td>
+<td>1.000000</td>
+<td>2.000000</td>
+<td>2.000000</td>
+<td>6.100000e+01</td>
+</tr>
+<tr>
+<th>INJURIES_UNKNOWN</th>
+<td>778941.0</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
 <td>0.000000</td>
 <td>0.000000e+00</td>
-<td>0.000000</td>
-<td>111.000000</td>
-<td>1.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.0</td>
-<td>0.000000</td>
-<td>1.000000</td>
-<td>1.000000</td>
-<td>0.000000</td>
-<td>-87.936193</td>
 </tr>
 <tr>
-<th>25%</th>
-<td>30.000000</td>
-<td>2.000000e+00</td>
-<td>1245.000000</td>
-<td>714.000000</td>
-<td>2.000000</td>
+<th>CRASH_HOUR</th>
+<td>780650.0</td>
+<td>13.205202</td>
+<td>5.565554</td>
 <td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>1.000000</td>
-<td>0.0</td>
 <td>9.000000</td>
-<td>2.000000</td>
-<td>4.000000</td>
-<td>41.782384</td>
-<td>-87.721652</td>
-</tr>
-<tr>
-<th>50%</th>
-<td>30.000000</td>
-<td>2.000000e+00</td>
-<td>3200.000000</td>
-<td>1211.000000</td>
-<td>2.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>2.000000</td>
-<td>0.0</td>
 <td>14.000000</td>
-<td>4.000000</td>
-<td>7.000000</td>
-<td>41.874708</td>
-<td>-87.674053</td>
-</tr>
-<tr>
-<th>75%</th>
-<td>30.000000</td>
-<td>4.000000e+00</td>
-<td>5600.000000</td>
-<td>1822.000000</td>
-<td>2.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>2.000000</td>
-<td>0.0</td>
 <td>17.000000</td>
-<td>6.000000</td>
-<td>10.000000</td>
-<td>41.924284</td>
-<td>-87.633279</td>
+<td>2.300000e+01</td>
 </tr>
 <tr>
-<th>max</th>
-<td>99.000000</td>
-<td>1.191625e+06</td>
-<td>451100.000000</td>
-<td>6100.000000</td>
-<td>18.000000</td>
-<td>21.000000</td>
+<th>CRASH_DAY_OF_WEEK</th>
+<td>780650.0</td>
+<td>4.121978</td>
+<td>1.980376</td>
+<td>1.000000</td>
+<td>2.000000</td>
 <td>4.000000</td>
-<td>10.000000</td>
-<td>21.000000</td>
-<td>15.000000</td>
-<td>61.000000</td>
-<td>0.0</td>
-<td>23.000000</td>
+<td>6.000000</td>
+<td>7.000000e+00</td>
+</tr>
+<tr>
+<th>CRASH_MONTH</th>
+<td>780650.0</td>
+<td>6.705930</td>
+<td>3.370348</td>
+<td>1.000000</td>
+<td>4.000000</td>
 <td>7.000000</td>
-<td>12.000000</td>
-<td>42.022780</td>
+<td>10.000000</td>
+<td>1.200000e+01</td>
+</tr>
+<tr>
+<th>LATITUDE</th>
+<td>775410.0</td>
+<td>41.854829</td>
+<td>0.333680</td>
 <td>0.000000</td>
+<td>41.782385</td>
+<td>41.874709</td>
+<td>41.924284</td>
+<td>4.202278e+01</td>
+</tr>
+<tr>
+<th>LONGITUDE</th>
+<td>775410.0</td>
+<td>-87.673544</td>
+<td>0.677870</td>
+<td>-87.936193</td>
+<td>-87.721667</td>
+<td>-87.674053</td>
+<td>-87.633285</td>
+<td>0.000000e+00</td>
 </tr>
 </tbody>
 </table>
@@ -7860,7 +8878,7 @@ memory usage: 291.4+ MB
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 </div>
@@ -7891,957 +8909,854 @@ memory usage: 291.4+ MB
 <thead>
 <tr style="text-align: right;">
 <th></th>
-<th>CRASH_RECORD_ID</th>
-<th>RD_NO</th>
-<th>CRASH_DATE_EST_I</th>
-<th>CRASH_DATE</th>
-<th>POSTED_SPEED_LIMIT</th>
-<th>TRAFFIC_CONTROL_DEVICE</th>
-<th>DEVICE_CONDITION</th>
-<th>WEATHER_CONDITION</th>
-<th>LIGHTING_CONDITION</th>
-<th>FIRST_CRASH_TYPE</th>
-<th>...</th>
-<th>INJURIES_NON_INCAPACITATING</th>
-<th>INJURIES_REPORTED_NOT_EVIDENT</th>
-<th>INJURIES_NO_INDICATION</th>
-<th>INJURIES_UNKNOWN</th>
-<th>CRASH_HOUR</th>
-<th>CRASH_DAY_OF_WEEK</th>
-<th>CRASH_MONTH</th>
-<th>LATITUDE</th>
-<th>LONGITUDE</th>
-<th>LOCATION</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th>0</th>
+<th>CRASH_RECORD_ID</th>
 <td>6c1659069e9c6285a650e70d6f9b574ed5f64c12888479...</td>
-<td>JG387648</td>
-<td>NaN</td>
-<td>08/18/2023 12:50:00 PM</td>
-<td>15</td>
-<td>OTHER</td>
-<td>FUNCTIONING PROPERLY</td>
-<td>CLEAR</td>
-<td>DAYLIGHT</td>
-<td>REAR END</td>
-<td>...</td>
-<td>1.0</td>
-<td>0.0</td>
-<td>1.0</td>
-<td>0.0</td>
-<td>12</td>
-<td>6</td>
-<td>8</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>1</th>
 <td>5f54a59fcb087b12ae5b1acff96a3caf4f2d37e79f8db4...</td>
-<td>JG361138</td>
-<td>NaN</td>
-<td>07/29/2023 02:45:00 PM</td>
-<td>30</td>
-<td>TRAFFIC SIGNAL</td>
-<td>FUNCTIONING PROPERLY</td>
-<td>CLEAR</td>
-<td>DAYLIGHT</td>
-<td>PARKED MOTOR VEHICLE</td>
-<td>...</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>1.0</td>
-<td>0.0</td>
-<td>14</td>
-<td>7</td>
-<td>7</td>
-<td>41.854120</td>
-<td>-87.665902</td>
-<td>POINT (-87.665902342962 41.854120262952)</td>
-</tr>
-<tr>
-<th>2</th>
 <td>61fcb8c1eb522a6469b460e2134df3d15f82e81fd93e9c...</td>
-<td>JG388133</td>
-<td>NaN</td>
-<td>08/18/2023 05:58:00 PM</td>
-<td>30</td>
-<td>NO CONTROLS</td>
-<td>NO CONTROLS</td>
-<td>CLEAR</td>
-<td>DAYLIGHT</td>
-<td>PEDALCYCLIST</td>
-<td>...</td>
-<td>1.0</td>
-<td>0.0</td>
-<td>1.0</td>
-<td>0.0</td>
-<td>17</td>
-<td>6</td>
-<td>8</td>
-<td>41.942976</td>
-<td>-87.761883</td>
-<td>POINT (-87.761883496974 41.942975745006)</td>
-</tr>
-<tr>
-<th>3</th>
 <td>004cd14d0303a9163aad69a2d7f341b7da2a8572b2ab33...</td>
-<td>JC524901</td>
-<td>NaN</td>
-<td>11/26/2019 08:38:00 AM</td>
-<td>25</td>
-<td>NO CONTROLS</td>
-<td>NO CONTROLS</td>
-<td>CLEAR</td>
-<td>DAYLIGHT</td>
-<td>PEDESTRIAN</td>
-<td>...</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>1.0</td>
-<td>0.0</td>
-<td>8</td>
-<td>3</td>
-<td>11</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>4</th>
 <td>a1d5f0ea90897745365a4cbb06cc60329a120d89753fac...</td>
+</tr>
+<tr>
+<th>RD_NO</th>
+<td>JG387648</td>
+<td>JG361138</td>
+<td>JG388133</td>
+<td>JC524901</td>
 <td>JG387475</td>
+</tr>
+<tr>
+<th>CRASH_DATE_EST_I</th>
 <td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>CRASH_DATE</th>
+<td>08/18/2023 12:50:00 PM</td>
+<td>07/29/2023 02:45:00 PM</td>
+<td>08/18/2023 05:58:00 PM</td>
+<td>11/26/2019 08:38:00 AM</td>
 <td>08/18/2023 10:45:00 AM</td>
+</tr>
+<tr>
+<th>POSTED_SPEED_LIMIT</th>
+<td>15</td>
+<td>30</td>
+<td>30</td>
+<td>25</td>
 <td>20</td>
+</tr>
+<tr>
+<th>TRAFFIC_CONTROL_DEVICE</th>
+<td>OTHER</td>
+<td>TRAFFIC SIGNAL</td>
 <td>NO CONTROLS</td>
 <td>NO CONTROLS</td>
+<td>NO CONTROLS</td>
+</tr>
+<tr>
+<th>DEVICE_CONDITION</th>
+<td>FUNCTIONING PROPERLY</td>
+<td>FUNCTIONING PROPERLY</td>
+<td>NO CONTROLS</td>
+<td>NO CONTROLS</td>
+<td>NO CONTROLS</td>
+</tr>
+<tr>
+<th>WEATHER_CONDITION</th>
 <td>CLEAR</td>
+<td>CLEAR</td>
+<td>CLEAR</td>
+<td>CLEAR</td>
+<td>CLEAR</td>
+</tr>
+<tr>
+<th>LIGHTING_CONDITION</th>
 <td>DAYLIGHT</td>
+<td>DAYLIGHT</td>
+<td>DAYLIGHT</td>
+<td>DAYLIGHT</td>
+<td>DAYLIGHT</td>
+</tr>
+<tr>
+<th>FIRST_CRASH_TYPE</th>
+<td>REAR END</td>
+<td>PARKED MOTOR VEHICLE</td>
+<td>PEDALCYCLIST</td>
+<td>PEDESTRIAN</td>
 <td>FIXED OBJECT</td>
-<td>...</td>
+</tr>
+<tr>
+<th>TRAFFICWAY_TYPE</th>
+<td>OTHER</td>
+<td>DIVIDED - W/MEDIAN (NOT RAISED)</td>
+<td>NOT DIVIDED</td>
+<td>ONE-WAY</td>
+<td>OTHER</td>
+</tr>
+<tr>
+<th>LANE_CNT</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>ALIGNMENT</th>
+<td>STRAIGHT AND LEVEL</td>
+<td>STRAIGHT AND LEVEL</td>
+<td>STRAIGHT AND LEVEL</td>
+<td>CURVE ON GRADE</td>
+<td>STRAIGHT AND LEVEL</td>
+</tr>
+<tr>
+<th>ROADWAY_SURFACE_COND</th>
+<td>DRY</td>
+<td>DRY</td>
+<td>DRY</td>
+<td>DRY</td>
+<td>DRY</td>
+</tr>
+<tr>
+<th>ROAD_DEFECT</th>
+<td>NO DEFECTS</td>
+<td>NO DEFECTS</td>
+<td>NO DEFECTS</td>
+<td>NO DEFECTS</td>
+<td>NO DEFECTS</td>
+</tr>
+<tr>
+<th>REPORT_TYPE</th>
+<td>ON SCENE</td>
+<td>ON SCENE</td>
+<td>ON SCENE</td>
+<td>ON SCENE</td>
+<td>ON SCENE</td>
+</tr>
+<tr>
+<th>CRASH_TYPE</th>
+<td>INJURY AND / OR TOW DUE TO CRASH</td>
+<td>NO INJURY / DRIVE AWAY</td>
+<td>INJURY AND / OR TOW DUE TO CRASH</td>
+<td>INJURY AND / OR TOW DUE TO CRASH</td>
+<td>NO INJURY / DRIVE AWAY</td>
+</tr>
+<tr>
+<th>INTERSECTION_RELATED_I</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>NOT_RIGHT_OF_WAY_I</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>HIT_AND_RUN_I</th>
+<td>NaN</td>
+<td>Y</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>DAMAGE</th>
+<td>OVER $1,500</td>
+<td>OVER $1,500</td>
+<td>$501 - $1,500</td>
+<td>OVER $1,500</td>
+<td>OVER $1,500</td>
+</tr>
+<tr>
+<th>DATE_POLICE_NOTIFIED</th>
+<td>08/18/2023 12:55:00 PM</td>
+<td>07/29/2023 02:45:00 PM</td>
+<td>08/18/2023 06:01:00 PM</td>
+<td>11/26/2019 08:38:00 AM</td>
+<td>08/18/2023 10:48:00 AM</td>
+</tr>
+<tr>
+<th>PRIM_CONTRIBUTORY_CAUSE</th>
+<td>FOLLOWING TOO CLOSELY</td>
+<td>FAILING TO REDUCE SPEED TO AVOID CRASH</td>
+<td>FAILING TO REDUCE SPEED TO AVOID CRASH</td>
+<td>UNABLE TO DETERMINE</td>
+<td>FOLLOWING TOO CLOSELY</td>
+</tr>
+<tr>
+<th>SEC_CONTRIBUTORY_CAUSE</th>
+<td>DISTRACTION - FROM INSIDE VEHICLE</td>
+<td>OPERATING VEHICLE IN ERRATIC, RECKLESS, CARELE...</td>
+<td>UNABLE TO DETERMINE</td>
+<td>NOT APPLICABLE</td>
+<td>DRIVING SKILLS/KNOWLEDGE/EXPERIENCE</td>
+</tr>
+<tr>
+<th>STREET_NO</th>
+<td>700</td>
+<td>2101</td>
+<td>3422</td>
+<td>5</td>
+<td>3</td>
+</tr>
+<tr>
+<th>STREET_DIRECTION</th>
+<td>W</td>
+<td>S</td>
+<td>N</td>
+<td>W</td>
+<td>W</td>
+</tr>
+<tr>
+<th>STREET_NAME</th>
+<td>OHARE ST</td>
+<td>ASHLAND AVE</td>
+<td>LONG AVE</td>
+<td>TERMINAL ST</td>
+<td>TERMINAL ST</td>
+</tr>
+<tr>
+<th>BEAT_OF_OCCURRENCE</th>
+<td>1654.0</td>
+<td>1235.0</td>
+<td>1633.0</td>
+<td>1655.0</td>
+<td>1653.0</td>
+</tr>
+<tr>
+<th>PHOTOS_TAKEN_I</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Y</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>STATEMENTS_TAKEN_I</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Y</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>DOORING_I</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>WORK_ZONE_I</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>WORK_ZONE_TYPE</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>WORKERS_PRESENT_I</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>NUM_UNITS</th>
+<td>2</td>
+<td>4</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr>
+<th>MOST_SEVERE_INJURY</th>
+<td>NONINCAPACITATING INJURY</td>
+<td>NO INDICATION OF INJURY</td>
+<td>NONINCAPACITATING INJURY</td>
+<td>FATAL</td>
+<td>NO INDICATION OF INJURY</td>
+</tr>
+<tr>
+<th>INJURIES_TOTAL</th>
+<td>1.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>INJURIES_FATAL</th>
+<td>0.0</td>
 <td>0.0</td>
 <td>0.0</td>
 <td>1.0</td>
 <td>0.0</td>
-<td>10</td>
-<td>6</td>
-<td>8</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
 </tr>
-</tbody>
-</table>
-<p>5 rows × 49 columns</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>CRASH_RECORD_ID</th>
-<th>RD_NO</th>
-<th>CRASH_DATE_EST_I</th>
-<th>CRASH_DATE</th>
-<th>POSTED_SPEED_LIMIT</th>
-<th>TRAFFIC_CONTROL_DEVICE</th>
-<th>DEVICE_CONDITION</th>
-<th>WEATHER_CONDITION</th>
-<th>LIGHTING_CONDITION</th>
-<th>FIRST_CRASH_TYPE</th>
-<th>...</th>
+<tr>
+<th>INJURIES_INCAPACITATING</th>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
 <th>INJURIES_NON_INCAPACITATING</th>
+<td>1.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
 <th>INJURIES_REPORTED_NOT_EVIDENT</th>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
 <th>INJURIES_NO_INDICATION</th>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
 <th>INJURIES_UNKNOWN</th>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
 <th>CRASH_HOUR</th>
-<th>CRASH_DAY_OF_WEEK</th>
-<th>CRASH_MONTH</th>
-<th>LATITUDE</th>
-<th>LONGITUDE</th>
-<th>LOCATION</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>779478</th>
-<td>61c8dcd63fae60613bc9ec526fa901420cbe99a6d35840...</td>
-<td>JG335280</td>
-<td>NaN</td>
-<td>07/10/2023 12:29:00 PM</td>
-<td>30</td>
-<td>TRAFFIC SIGNAL</td>
-<td>FUNCTIONING PROPERLY</td>
-<td>CLEAR</td>
-<td>DAYLIGHT</td>
-<td>TURNING</td>
-<td>...</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>2.0</td>
-<td>0.0</td>
 <td>12</td>
-<td>2</td>
-<td>7</td>
-<td>41.857531</td>
-<td>-87.644929</td>
-<td>POINT (-87.644928607359 41.857530859236)</td>
+<td>14</td>
+<td>17</td>
+<td>8</td>
+<td>10</td>
 </tr>
 <tr>
-<th>779479</th>
-<td>89dc61af34d393db950397f0cc06d53b56d1f5e5fa14d4...</td>
-<td>JG317141</td>
-<td>NaN</td>
-<td>06/26/2023 04:50:00 PM</td>
-<td>35</td>
-<td>NO CONTROLS</td>
-<td>NO CONTROLS</td>
-<td>CLEAR</td>
-<td>DAYLIGHT</td>
-<td>SIDESWIPE SAME DIRECTION</td>
-<td>...</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>4.0</td>
-<td>0.0</td>
-<td>16</td>
-<td>2</td>
+<th>CRASH_DAY_OF_WEEK</th>
 <td>6</td>
-<td>41.746905</td>
-<td>-87.644077</td>
-<td>POINT (-87.644077151581 41.746904607442)</td>
-</tr>
-<tr>
-<th>779480</th>
-<td>3a5f25711e9162f0042a53337a25f2c3dc72893c1172d9...</td>
-<td>JC519990</td>
-<td>NaN</td>
-<td>11/22/2019 07:30:00 AM</td>
-<td>30</td>
-<td>TRAFFIC SIGNAL</td>
-<td>FUNCTIONING PROPERLY</td>
-<td>CLEAR</td>
-<td>DAYLIGHT</td>
-<td>REAR TO FRONT</td>
-<td>...</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>4.0</td>
-<td>0.0</td>
 <td>7</td>
 <td>6</td>
-<td>11</td>
-<td>41.953655</td>
-<td>-87.718926</td>
-<td>POINT (-87.718925716094 41.953654536112)</td>
+<td>3</td>
+<td>6</td>
 </tr>
 <tr>
-<th>779481</th>
-<td>45d62ddd4e4b5572d253cc072b3927afc15489728f1ba8...</td>
-<td>JG370579</td>
-<td>NaN</td>
-<td>08/05/2023 01:00:00 PM</td>
-<td>30</td>
-<td>TRAFFIC SIGNAL</td>
-<td>FUNCTIONING IMPROPERLY</td>
-<td>RAIN</td>
-<td>DAYLIGHT</td>
-<td>SIDESWIPE SAME DIRECTION</td>
-<td>...</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>2.0</td>
-<td>0.0</td>
-<td>13</td>
+<th>CRASH_MONTH</th>
+<td>8</td>
 <td>7</td>
 <td>8</td>
-<td>41.798505</td>
-<td>-87.723459</td>
-<td>POINT (-87.723458737142 41.798505044022)</td>
+<td>11</td>
+<td>8</td>
 </tr>
 <tr>
-<th>779482</th>
-<td>f2c0204e5392ff379e5804ad25fad66304949d517327c6...</td>
-<td>JD403415</td>
+<th>LATITUDE</th>
 <td>NaN</td>
-<td>10/18/2020 12:03:00 AM</td>
+<td>41.85412</td>
+<td>41.942976</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>LONGITUDE</th>
+<td>NaN</td>
+<td>-87.665902</td>
+<td>-87.761883</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>LOCATION</th>
+<td>NaN</td>
+<td>POINT (-87.665902342962 41.854120262952)</td>
+<td>POINT (-87.761883496974 41.942975745006)</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>780645</th>
+<th>780646</th>
+<th>780647</th>
+<th>780648</th>
+<th>780649</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>CRASH_RECORD_ID</th>
+<td>ddb7c68c829fa774fa13b1a8bda817c7f9094a66044723...</td>
+<td>5914c45ccb3f73c5ad90016bbbc05e4d6ed245dc2ba4e5...</td>
+<td>15f6eb6cde6a026a007034c7081b1f3fac747fc3268591...</td>
+<td>7ec8a53416079fa3a79b03b3530e4e42e5fde5d9d95959...</td>
+<td>6bd73dc0b10ee0272e9269bec32b57327611c2ad3cf19b...</td>
+</tr>
+<tr>
+<th>RD_NO</th>
+<td>JD295322</td>
+<td>JC450788</td>
+<td>JC155211</td>
+<td>JB567683</td>
+<td>JE435503</td>
+</tr>
+<tr>
+<th>CRASH_DATE_EST_I</th>
+<td>NaN</td>
+<td>Y</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>CRASH_DATE</th>
+<td>07/12/2020 06:45:00 PM</td>
+<td>09/27/2019 04:25:00 PM</td>
+<td>02/17/2018 08:00:00 AM</td>
+<td>12/26/2018 11:45:00 AM</td>
+<td>11/05/2021 10:56:00 PM</td>
+</tr>
+<tr>
+<th>POSTED_SPEED_LIMIT</th>
+<td>20</td>
 <td>30</td>
+<td>30</td>
+<td>20</td>
+<td>30</td>
+</tr>
+<tr>
+<th>TRAFFIC_CONTROL_DEVICE</th>
+<td>NO CONTROLS</td>
+<td>TRAFFIC SIGNAL</td>
 <td>NO CONTROLS</td>
 <td>NO CONTROLS</td>
+<td>OTHER</td>
+</tr>
+<tr>
+<th>DEVICE_CONDITION</th>
+<td>NO CONTROLS</td>
+<td>FUNCTIONING PROPERLY</td>
+<td>NO CONTROLS</td>
+<td>NOT FUNCTIONING</td>
+<td>FUNCTIONING PROPERLY</td>
+</tr>
+<tr>
+<th>WEATHER_CONDITION</th>
 <td>CLEAR</td>
+<td>RAIN</td>
+<td>CLEAR</td>
+<td>CLEAR</td>
+<td>CLEAR</td>
+</tr>
+<tr>
+<th>LIGHTING_CONDITION</th>
+<td>DAYLIGHT</td>
+<td>DAYLIGHT</td>
+<td>DAYLIGHT</td>
+<td>DAYLIGHT</td>
 <td>DARKNESS, LIGHTED ROAD</td>
-<td>SIDESWIPE SAME DIRECTION</td>
-<td>...</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>4.0</td>
-<td>0.0</td>
-<td>0</td>
+</tr>
+<tr>
+<th>FIRST_CRASH_TYPE</th>
+<td>PARKED MOTOR VEHICLE</td>
+<td>PEDESTRIAN</td>
+<td>PARKED MOTOR VEHICLE</td>
+<td>PARKED MOTOR VEHICLE</td>
+<td>OTHER OBJECT</td>
+</tr>
+<tr>
+<th>TRAFFICWAY_TYPE</th>
+<td>NOT DIVIDED</td>
+<td>NOT DIVIDED</td>
+<td>NOT DIVIDED</td>
+<td>NOT DIVIDED</td>
+<td>ONE-WAY</td>
+</tr>
+<tr>
+<th>LANE_CNT</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>ALIGNMENT</th>
+<td>STRAIGHT AND LEVEL</td>
+<td>STRAIGHT AND LEVEL</td>
+<td>STRAIGHT AND LEVEL</td>
+<td>STRAIGHT AND LEVEL</td>
+<td>STRAIGHT AND LEVEL</td>
+</tr>
+<tr>
+<th>ROADWAY_SURFACE_COND</th>
+<td>DRY</td>
+<td>WET</td>
+<td>DRY</td>
+<td>DRY</td>
+<td>DRY</td>
+</tr>
+<tr>
+<th>ROAD_DEFECT</th>
+<td>NO DEFECTS</td>
+<td>NO DEFECTS</td>
+<td>NO DEFECTS</td>
+<td>NO DEFECTS</td>
+<td>NO DEFECTS</td>
+</tr>
+<tr>
+<th>REPORT_TYPE</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>ON SCENE</td>
+<td>ON SCENE</td>
+</tr>
+<tr>
+<th>CRASH_TYPE</th>
+<td>INJURY AND / OR TOW DUE TO CRASH</td>
+<td>INJURY AND / OR TOW DUE TO CRASH</td>
+<td>NO INJURY / DRIVE AWAY</td>
+<td>NO INJURY / DRIVE AWAY</td>
+<td>INJURY AND / OR TOW DUE TO CRASH</td>
+</tr>
+<tr>
+<th>INTERSECTION_RELATED_I</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>NOT_RIGHT_OF_WAY_I</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Y</td>
+</tr>
+<tr>
+<th>HIT_AND_RUN_I</th>
+<td>Y</td>
+<td>NaN</td>
+<td>Y</td>
+<td>NaN</td>
+<td>Y</td>
+</tr>
+<tr>
+<th>DAMAGE</th>
+<td>OVER $1,500</td>
+<td>$500 OR LESS</td>
+<td>$501 - $1,500</td>
+<td>OVER $1,500</td>
+<td>OVER $1,500</td>
+</tr>
+<tr>
+<th>DATE_POLICE_NOTIFIED</th>
+<td>07/12/2020 06:45:00 PM</td>
+<td>09/27/2019 04:29:00 PM</td>
+<td>02/17/2018 08:24:00 AM</td>
+<td>12/26/2018 12:00:00 PM</td>
+<td>11/06/2021 12:18:00 AM</td>
+</tr>
+<tr>
+<th>PRIM_CONTRIBUTORY_CAUSE</th>
+<td>OPERATING VEHICLE IN ERRATIC, RECKLESS, CARELE...</td>
+<td>UNABLE TO DETERMINE</td>
+<td>UNABLE TO DETERMINE</td>
+<td>EXCEEDING AUTHORIZED SPEED LIMIT</td>
+<td>UNABLE TO DETERMINE</td>
+</tr>
+<tr>
+<th>SEC_CONTRIBUTORY_CAUSE</th>
+<td>FAILING TO REDUCE SPEED TO AVOID CRASH</td>
+<td>CELL PHONE USE OTHER THAN TEXTING</td>
+<td>UNABLE TO DETERMINE</td>
+<td>DRIVING SKILLS/KNOWLEDGE/EXPERIENCE</td>
+<td>NOT APPLICABLE</td>
+</tr>
+<tr>
+<th>STREET_NO</th>
+<td>3857</td>
+<td>415</td>
+<td>7004</td>
+<td>4510</td>
+<td>2946</td>
+</tr>
+<tr>
+<th>STREET_DIRECTION</th>
+<td>N</td>
+<td>E</td>
+<td>N</td>
+<td>W</td>
+<td>W</td>
+</tr>
+<tr>
+<th>STREET_NAME</th>
+<td>KEELER AVE</td>
+<td>87TH ST</td>
+<td>PAULINA ST</td>
+<td>CORNELIA AVE</td>
+<td>VAN BUREN ST</td>
+</tr>
+<tr>
+<th>BEAT_OF_OCCURRENCE</th>
+<td>1731.0</td>
+<td>632.0</td>
+<td>2423.0</td>
+<td>1731.0</td>
+<td>1124.0</td>
+</tr>
+<tr>
+<th>PHOTOS_TAKEN_I</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>STATEMENTS_TAKEN_I</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>DOORING_I</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>WORK_ZONE_I</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>WORK_ZONE_TYPE</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>WORKERS_PRESENT_I</th>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>NUM_UNITS</th>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
 <td>1</td>
-<td>10</td>
-<td>41.776184</td>
-<td>-87.703219</td>
-<td>POINT (-87.703218946422 41.776183637489)</td>
+</tr>
+<tr>
+<th>MOST_SEVERE_INJURY</th>
+<td>NO INDICATION OF INJURY</td>
+<td>NONINCAPACITATING INJURY</td>
+<td>NO INDICATION OF INJURY</td>
+<td>NO INDICATION OF INJURY</td>
+<td>NO INDICATION OF INJURY</td>
+</tr>
+<tr>
+<th>INJURIES_TOTAL</th>
+<td>0.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>INJURIES_FATAL</th>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>INJURIES_INCAPACITATING</th>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>INJURIES_NON_INCAPACITATING</th>
+<td>0.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>INJURIES_REPORTED_NOT_EVIDENT</th>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>INJURIES_NO_INDICATION</th>
+<td>2.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<th>INJURIES_UNKNOWN</th>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>CRASH_HOUR</th>
+<td>18</td>
+<td>16</td>
+<td>8</td>
+<td>11</td>
+<td>22</td>
+</tr>
+<tr>
+<th>CRASH_DAY_OF_WEEK</th>
+<td>1</td>
+<td>6</td>
+<td>7</td>
+<td>4</td>
+<td>6</td>
+</tr>
+<tr>
+<th>CRASH_MONTH</th>
+<td>7</td>
+<td>9</td>
+<td>2</td>
+<td>12</td>
+<td>11</td>
+</tr>
+<tr>
+<th>LATITUDE</th>
+<td>41.95164</td>
+<td>41.736402</td>
+<td>42.009193</td>
+<td>41.944516</td>
+<td>41.876044</td>
+</tr>
+<tr>
+<th>LONGITUDE</th>
+<td>-87.732269</td>
+<td>-87.613906</td>
+<td>-87.672396</td>
+<td>-87.740145</td>
+<td>-87.700459</td>
+</tr>
+<tr>
+<th>LOCATION</th>
+<td>POINT (-87.732268503259 41.951640180538)</td>
+<td>POINT (-87.613906262901 41.736402347964)</td>
+<td>POINT (-87.672396344055 42.009192992271)</td>
+<td>POINT (-87.740145109395 41.94451595115)</td>
+<td>POINT (-87.700459346481 41.876043663599)</td>
 </tr>
 </tbody>
 </table>
-<p>5 rows × 49 columns</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Crash-Reporting-Montgomery-County">Crash Reporting Montgomery County<a class="anchor-link" href="#Crash-Reporting-Montgomery-County">¶</a></h2><h3 id="Data-source">Data source<a class="anchor-link" href="#Data-source">¶</a></h3><p><a href="https://data.montgomerycountymd.gov/Public-Safety/Crash-Reporting-Drivers-Data/mmzv-x632">https://data.montgomerycountymd.gov/Public-Safety/Crash-Reporting-Drivers-Data/mmzv-x632</a></p>
-<h3 id="Data-characterisitcs">Data characterisitcs<a class="anchor-link" href="#Data-characterisitcs">¶</a></h3><p>This dataset provides information on motor vehicle operators (drivers) involved in traffic collisions occurring on county and local roadways. The dataset reports details of all traffic collisions occurring on county and local roadways within Montgomery County, as collected via the Automated Crash Reporting System (ACRS) of the Maryland State Police, and reported by the Montgomery County Police, Gaithersburg Police, Rockville Police, or the Maryland-National Capital Park Police. This dataset shows each collision data recorded and the drivers involved.</p>
-<p>Updated: November 10, 2023
-Data Provided by: Montgomery County, MD</p>
-<h3 id="Research-question">Research question<a class="anchor-link" href="#Research-question">¶</a></h3><h4 id="Linear-Regression">Linear Regression<a class="anchor-link" href="#Linear-Regression">¶</a></h4><p><strong>Which aspects can help predict the age of vehicles involved in crashes?</strong></p>
-<ul>
-<li>Y = vehicle year</li>
-<li>Column "Vehicle Year", the vehicle's year --&gt; age has to be calculated first</li>
-<li>Possible predictor variables: Vehicle damage extent, collision type, vehicle make, vehicle model, vehicle body type, equipment problems</li>
-</ul>
-<p><strong>Which aspects can help predict the speed limit at a crash location?</strong></p>
-<ul>
-<li>Y = speed limit</li>
-<li>Column "Speed limit", local area posted speed limit</li>
-<li>Possible predictor variables: road type, weather conditions, lighting conditions, traffic control devices, vehicle movement</li>
-</ul>
-<h4 id="Classification">Classification<a class="anchor-link" href="#Classification">¶</a></h4><p><strong>Driver at fault:  Which aspects can help predict whether a driver is at fault in a given crash?</strong></p>
-<ul>
-<li>Column "Driver at fault", can be either yes or no</li>
-<li>Possible predictor variables: Collision type, driver substance abuse, driver distracted by, vehicle type, weather conditions, traffic control, vehicle movement, light, equipment problems, circumstance, vehicle body type</li>
-</ul>
-<h3 id="Overview-of-data">Overview of data<a class="anchor-link" href="#Overview-of-data">¶</a></h3><pre><code>See below.</code></pre>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs celltag_hide-input">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'../../Crash_Reporting_-_Drivers_Data_20231112.csv'</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
-RangeIndex: 168515 entries, 0 to 168514
-Data columns (total 43 columns):
- #   Column                          Non-Null Count   Dtype  
----  ------                          --------------   -----  
- 0   Report Number                   168515 non-null  object 
- 1   Local Case Number               168515 non-null  object 
- 2   Agency Name                     168515 non-null  object 
- 3   ACRS Report Type                168515 non-null  object 
- 4   Crash Date/Time                 168515 non-null  object 
- 5   Route Type                      151898 non-null  object 
- 6   Road Name                       152884 non-null  object 
- 7   Cross-Street Type               151867 non-null  object 
- 8   Cross-Street Name               152873 non-null  object 
- 9   Off-Road Description            15629 non-null   object 
- 10  Municipality                    18551 non-null   object 
- 11  Related Non-Motorist            5338 non-null    object 
- 12  Collision Type                  167942 non-null  object 
- 13  Weather                         155421 non-null  object 
- 14  Surface Condition               148783 non-null  object 
- 15  Light                           167116 non-null  object 
- 16  Traffic Control                 143506 non-null  object 
- 17  Driver Substance Abuse          137825 non-null  object 
- 18  Non-Motorist Substance Abuse    4219 non-null    object 
- 19  Person ID                       168515 non-null  object 
- 20  Driver At Fault                 168515 non-null  object 
- 21  Injury Severity                 168515 non-null  object 
- 22  Circumstance                    30602 non-null   object 
- 23  Driver Distracted By            168515 non-null  object 
- 24  Drivers License State           158841 non-null  object 
- 25  Vehicle ID                      168515 non-null  object 
- 26  Vehicle Damage Extent           168210 non-null  object 
- 27  Vehicle First Impact Location   168359 non-null  object 
- 28  Vehicle Second Impact Location  168259 non-null  object 
- 29  Vehicle Body Type               165926 non-null  object 
- 30  Vehicle Movement                168141 non-null  object 
- 31  Vehicle Continuing Dir          165891 non-null  object 
- 32  Vehicle Going Dir               165891 non-null  object 
- 33  Speed Limit                     168515 non-null  int64  
- 34  Driverless Vehicle              168515 non-null  object 
- 35  Parked Vehicle                  168515 non-null  object 
- 36  Vehicle Year                    168515 non-null  int64  
- 37  Vehicle Make                    168491 non-null  object 
- 38  Vehicle Model                   168450 non-null  object 
- 39  Equipment Problems              134949 non-null  object 
- 40  Latitude                        168515 non-null  float64
- 41  Longitude                       168515 non-null  float64
- 42  Location                        168515 non-null  object 
-dtypes: float64(2), int64(2), object(39)
-memory usage: 55.3+ MB
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>Speed Limit</th>
-<th>Vehicle Year</th>
-<th>Latitude</th>
-<th>Longitude</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>count</th>
-<td>168515.000000</td>
-<td>168515.000000</td>
-<td>168515.000000</td>
-<td>168515.000000</td>
-</tr>
-<tr>
-<th>mean</th>
-<td>32.564312</td>
-<td>1966.414432</td>
-<td>39.083035</td>
-<td>-77.112259</td>
-</tr>
-<tr>
-<th>std</th>
-<td>11.056977</td>
-<td>340.454212</td>
-<td>0.072106</td>
-<td>0.098616</td>
-</tr>
-<tr>
-<th>min</th>
-<td>0.000000</td>
-<td>0.000000</td>
-<td>37.720000</td>
-<td>-79.486000</td>
-</tr>
-<tr>
-<th>25%</th>
-<td>25.000000</td>
-<td>2006.000000</td>
-<td>39.024213</td>
-<td>-77.189104</td>
-</tr>
-<tr>
-<th>50%</th>
-<td>35.000000</td>
-<td>2011.000000</td>
-<td>39.074843</td>
-<td>-77.105148</td>
-</tr>
-<tr>
-<th>75%</th>
-<td>40.000000</td>
-<td>2015.000000</td>
-<td>39.139640</td>
-<td>-77.039582</td>
-</tr>
-<tr>
-<th>max</th>
-<td>75.000000</td>
-<td>9999.000000</td>
-<td>39.990414</td>
-<td>-75.527708</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>Report Number</th>
-<th>Local Case Number</th>
-<th>Agency Name</th>
-<th>ACRS Report Type</th>
-<th>Crash Date/Time</th>
-<th>Route Type</th>
-<th>Road Name</th>
-<th>Cross-Street Type</th>
-<th>Cross-Street Name</th>
-<th>Off-Road Description</th>
-<th>...</th>
-<th>Speed Limit</th>
-<th>Driverless Vehicle</th>
-<th>Parked Vehicle</th>
-<th>Vehicle Year</th>
-<th>Vehicle Make</th>
-<th>Vehicle Model</th>
-<th>Equipment Problems</th>
-<th>Latitude</th>
-<th>Longitude</th>
-<th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>MCP3040003N</td>
-<td>190026050</td>
-<td>Montgomery County Police</td>
-<td>Property Damage Crash</td>
-<td>05/31/2019 03:00:00 PM</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>PARKING LOT OF 3215 SPARTAN RD</td>
-<td>...</td>
-<td>15</td>
-<td>No</td>
-<td>No</td>
-<td>2004</td>
-<td>HONDA</td>
-<td>TK</td>
-<td>UNKNOWN</td>
-<td>39.150044</td>
-<td>-77.063089</td>
-<td>(39.15004368, -77.06308884)</td>
-</tr>
-<tr>
-<th>1</th>
-<td>MCP1307000K</td>
-<td>190024786</td>
-<td>Montgomery County Police</td>
-<td>Property Damage Crash</td>
-<td>05/24/2019 05:00:00 PM</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>PARKING LOT</td>
-<td>...</td>
-<td>0</td>
-<td>No</td>
-<td>No</td>
-<td>0</td>
-<td>UNK</td>
-<td>UNK</td>
-<td>NaN</td>
-<td>39.199047</td>
-<td>-77.250743</td>
-<td>(39.19904667, -77.25074333)</td>
-</tr>
-<tr>
-<th>2</th>
-<td>MCP2846008X</td>
-<td>230034260</td>
-<td>Montgomery County Police</td>
-<td>Property Damage Crash</td>
-<td>07/17/2023 10:45:00 AM</td>
-<td>County</td>
-<td>SELFRIDGE RD</td>
-<td>County</td>
-<td>RANDOLPH RD</td>
-<td>NaN</td>
-<td>...</td>
-<td>35</td>
-<td>No</td>
-<td>No</td>
-<td>2003</td>
-<td>FORD</td>
-<td>TK</td>
-<td>NO MISUSE</td>
-<td>39.054588</td>
-<td>-77.085974</td>
-<td>(39.05458848, -77.08597423)</td>
-</tr>
-<tr>
-<th>3</th>
-<td>MCP32610017</td>
-<td>230034668</td>
-<td>Montgomery County Police</td>
-<td>Property Damage Crash</td>
-<td>07/20/2023 11:40:00 PM</td>
-<td>Maryland (State)</td>
-<td>MUNCASTER MILL RD</td>
-<td>County</td>
-<td>SHADY GROVE RD</td>
-<td>NaN</td>
-<td>...</td>
-<td>45</td>
-<td>No</td>
-<td>No</td>
-<td>2023</td>
-<td>TOYT</td>
-<td>CP</td>
-<td>NO MISUSE</td>
-<td>39.148721</td>
-<td>-77.147111</td>
-<td>(39.14872076, -77.14711061)</td>
-</tr>
-<tr>
-<th>4</th>
-<td>EJ78520081</td>
-<td>230033429</td>
-<td>Gaithersburg Police Depar</td>
-<td>Property Damage Crash</td>
-<td>07/13/2023 05:40:00 PM</td>
-<td>Municipality</td>
-<td>PERRY PKWY</td>
-<td>Unknown</td>
-<td>ENT TO SHOPPING CENTER</td>
-<td>NaN</td>
-<td>...</td>
-<td>25</td>
-<td>No</td>
-<td>No</td>
-<td>2001</td>
-<td>KENWORTH</td>
-<td>TRUCK</td>
-<td>NaN</td>
-<td>39.149085</td>
-<td>-77.210731</td>
-<td>(39.14908542, -77.21073135)</td>
-</tr>
-</tbody>
-</table>
-<p>5 rows × 43 columns</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">_df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>Report Number</th>
-<th>Local Case Number</th>
-<th>Agency Name</th>
-<th>ACRS Report Type</th>
-<th>Crash Date/Time</th>
-<th>Route Type</th>
-<th>Road Name</th>
-<th>Cross-Street Type</th>
-<th>Cross-Street Name</th>
-<th>Off-Road Description</th>
-<th>...</th>
-<th>Speed Limit</th>
-<th>Driverless Vehicle</th>
-<th>Parked Vehicle</th>
-<th>Vehicle Year</th>
-<th>Vehicle Make</th>
-<th>Vehicle Model</th>
-<th>Equipment Problems</th>
-<th>Latitude</th>
-<th>Longitude</th>
-<th>Location</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>168510</th>
-<td>DM8338000C</td>
-<td>16010228</td>
-<td>Takoma Park Police Depart</td>
-<td>Property Damage Crash</td>
-<td>03/01/2016 10:01:00 AM</td>
-<td>Municipality</td>
-<td>NEW HAMPSHIRE SERVICE LA</td>
-<td>Municipality</td>
-<td>PRINCE GEORGES AVE</td>
-<td>NaN</td>
-<td>...</td>
-<td>25</td>
-<td>No</td>
-<td>No</td>
-<td>2016</td>
-<td>FORD</td>
-<td>EXPLORER</td>
-<td>NO MISUSE</td>
-<td>38.972560</td>
-<td>-76.997466</td>
-<td>(38.97255976, -76.99746609)</td>
-</tr>
-<tr>
-<th>168511</th>
-<td>MCP1182001S</td>
-<td>170519976</td>
-<td>Montgomery County Police</td>
-<td>Property Damage Crash</td>
-<td>07/19/2017 02:22:00 PM</td>
-<td>County</td>
-<td>CEDAR LA</td>
-<td>Maryland (State)</td>
-<td>OLD GEORGETOWN RD</td>
-<td>NaN</td>
-<td>...</td>
-<td>35</td>
-<td>No</td>
-<td>No</td>
-<td>2008</td>
-<td>NISSAN</td>
-<td>ALTIMA</td>
-<td>NO MISUSE</td>
-<td>39.004640</td>
-<td>-77.108502</td>
-<td>(39.00464, -77.10850167)</td>
-</tr>
-<tr>
-<th>168512</th>
-<td>MCP1453008X</td>
-<td>200046217</td>
-<td>Montgomery County Police</td>
-<td>Property Damage Crash</td>
-<td>11/23/2020 07:37:00 AM</td>
-<td>Maryland (State)</td>
-<td>RIDGE RD</td>
-<td>Unknown</td>
-<td>LITTLE SENECA PKWY</td>
-<td>NaN</td>
-<td>...</td>
-<td>40</td>
-<td>No</td>
-<td>No</td>
-<td>2008</td>
-<td>CHEVROLET</td>
-<td>EXPRESS</td>
-<td>NO MISUSE</td>
-<td>39.228963</td>
-<td>-77.236757</td>
-<td>(39.22896333, -77.23675667)</td>
-</tr>
-<tr>
-<th>168513</th>
-<td>MCP2568000M</td>
-<td>190056701</td>
-<td>Montgomery County Police</td>
-<td>Property Damage Crash</td>
-<td>11/23/2019 11:23:00 PM</td>
-<td>County</td>
-<td>SHADY GROVE RD</td>
-<td>Ramp</td>
-<td>RAMP 9 FR IS 370 EB TO SHADY GROVE RD</td>
-<td>NaN</td>
-<td>...</td>
-<td>35</td>
-<td>No</td>
-<td>No</td>
-<td>2018</td>
-<td>FORD</td>
-<td>TRANSIT VAN</td>
-<td>NO MISUSE</td>
-<td>39.120440</td>
-<td>-77.180047</td>
-<td>(39.12043995, -77.18004738)</td>
-</tr>
-<tr>
-<th>168514</th>
-<td>MCP1048000P</td>
-<td>15003337</td>
-<td>Montgomery County Police</td>
-<td>Property Damage Crash</td>
-<td>01/21/2015 09:02:00 AM</td>
-<td>Maryland (State)</td>
-<td>FREDERICK RD</td>
-<td>Municipality</td>
-<td>W GUDE DR</td>
-<td>NaN</td>
-<td>...</td>
-<td>35</td>
-<td>No</td>
-<td>No</td>
-<td>2011</td>
-<td>HONDA</td>
-<td>CRV</td>
-<td>NaN</td>
-<td>39.106847</td>
-<td>-77.158380</td>
-<td>(39.10684667, -77.15838)</td>
-</tr>
-</tbody>
-</table>
-<p>5 rows × 43 columns</p>
 </div>
 </div>
 </div>
