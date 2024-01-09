@@ -17,5 +17,4 @@ dependencies:
       - matplotlib
       - scikit-learn
       - autopep8
-      - pickle
       - imblearn
